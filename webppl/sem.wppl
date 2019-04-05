@@ -1,0 +1,199 @@
+// -*- mode:javascript -*-
+
+var dimension = 4;
+
+var vector = function(n) {
+    return n === 0 ? [] : [ gaussian(0,1) , vector(n-1)]
+}
+
+var matrix = function(m,n) {
+    return n === 0 ? [] : [ vector(m) , matrix(m,n-1) ]
+}
+
+var ind = function() {vector(dimension)};
+
+var dotProd = function(p,q) {
+    return p.length === 0 ? 0 : dotProd(p[1],q[1]) + p[0]*q[0];
+};
+
+var vecMatProd = function(v,m) {
+    return m.length === 0 ? [] : [dotProd(v,m[0]), vecMatProd(v,m[1])];
+};
+
+
+var newMeasure = function () {
+  var p = vector(dimension);
+  return function(x) {dotProd(x,p)};
+}
+
+var newVagueMeasure = function (u) {
+  // the greater the u, the greater the vagueness.
+  var m = newMeasure();
+  return function(x) {
+      var uncertainty = gaussian(0, u);
+      m(x) + uncertainty;
+  };
+}
+
+var is = function(measure) {
+  return function(x) {
+    measure(x) > 0
+  }
+}
+
+var newPred = function() {
+    var m = newMeasure();
+    return is(m);
+}
+
+
+var hyp = function(prop) {
+    if (!prop) {
+        factor(-Infinity)
+        // if the property is not satisfied, discard this run.
+    }
+}
+
+var indSuch = function(p) {
+    var x = ind();
+    hyp(p(x));
+    return x
+}
+
+var all = function(cn) {
+    return function(vp) {
+        return function (x) {
+            !cn(x) || vp(x)
+        }
+    }
+}
+
+var most = function(cn) {
+    return function(vp) {
+        return function (x) {
+            var fudge = sample(Bernoulli({p : 0.9}))
+            !cn(x) || !fudge || vp(x)
+        }
+    }
+}
+
+
+var some = function(cn) {
+    return function(vp) {
+        return function (x) {
+            var fudge = sample(Bernoulli({p : 0.3}))
+            !cn(x) || !fudge || vp(x)
+        }
+    }
+    // does not seem to work correctly. The issue is that if we have a
+    // low probability then we must deduce "false" --- but that is not
+    // the case. It seems that we need to use a three-valued logic
+    // yes-no-unknown
+}
+
+var few = function(cn) {
+    return function(vp) {
+        return function (x) {
+            var fudge = sample(Bernoulli({p : 0.9}))
+            !cn(x) || !fudge || !vp(x)
+        }
+    }
+}
+
+
+var disjoint = function(p,q) {
+  return function(x){
+    !p(x) || !q(x)
+  }
+}
+
+var more = function(m,x,y) {
+  return m(x) > m(y);
+}
+
+var modelHeights = function() {
+  var tall = newVagueMeasure(3)
+  var john = ind()
+  var mary = ind()
+  
+  hyp(more(tall,john,mary))
+  
+  return is(tall)(john)
+  // return is(tall)(john) && !is(tall)(john)
+}
+
+var threeValued = function(p,np) {
+    p ? "yes" : (np ? "no" : "unknown")
+}
+
+var modelCars = function() {
+    var red=newPred();
+    var notRed=newPred();
+    var car=newPred();
+    var fast=newPred();
+
+    var x = ind()
+    hyp(disjoint(red,notRed)(x))
+    hyp(most(car)(red)(x))
+    hyp(most(car)(fast)(x))
+    hyp(red(x))
+  
+    // return threeValued(red(x),notRed(x))
+    return fast(x)
+}
+
+
+var newClass = function() {
+    return matrix(dimension,dimension);
+}
+var newAdj = function() {
+    return vector(dimension);
+}
+
+var subsect = function(cl,adj) {
+    return function(x) {dotProd(x,vecMatProd(adj,cl)) > 0};
+}
+
+var isClass = function(cl) {
+    return function(x) {dotProd(cl[0],x) > 0}
+}
+
+var adjMeasure = function(adj) {
+    return function(x) {dotProd(adj,x)}
+}
+
+var adjPred = function(adj) {
+    return function(x) {adjMeasure(adj)(x) > 0}
+}
+
+var and = function(p,q) {
+    return function(x) {p(x) && p(q)}
+}
+
+var modelSubs = function () {
+    var elephant=newClass();
+    //var mouse=newClass();
+    var large=newAdj();
+    var small=newAdj();
+
+              // dTdisjoint(subsect(mouse,large),subsect(mouse,small)),
+              // disjoint(subsect(elephant,large),subsect(elephant,small)),
+              // most(isClass(elephant))(adjPred(large)),
+              // most(isClass(mouse))(adjPred(small))
+
+    // var mickey=indSuch(hyps);
+    var dumbo=ind();
+    hyp(disjoint(adjPred(large),adjPred(small))(dumbo))
+    hyp(isClass(elephant)(dumbo))
+    hyp(most(isClass(elephant))(adjPred(large))(dumbo))
+
+    // hyp(subsect(mouse,large)(mickey));
+    hyp(subsect(elephant,small)(dumbo));
+
+    // return adjPred(large)(dumbo);
+    return subsect(elephant,large)(dumbo);
+}
+
+
+viz.auto(Infer({method: 'MCMC', samples: 10000}, modelSubs));
+

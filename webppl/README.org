@@ -1,0 +1,26 @@
+To open a shell with webppl, simply use
+
+#+BEGIN_SRC shell
+nix-shell
+#+END_SRC
+
+To use the viz package, do (within the above shell)
+
+#+BEGIN_SRC shell
+npm install --prefix ~/.webppl git+ssh://git@github.com/probmods/webppl-viz.git
+webppl --require webppl-viz (program)
+#+END_SRC
+
+To update the configuration to the current version of webppl, do:
+
+#+BEGIN_SRC shell
+node2nix -i webppl.json
+#+END_SRC
+
+
+Installing node2nix:
+
+#+BEGIN_SRC shell
+nix-env -f '<nixpkgs>' -iA nodePackages.node2nix
+#+END_SRC
+

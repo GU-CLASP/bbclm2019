@@ -1,0 +1,2 @@
+nix-shell ../Frontend/shell.nix --pure --run "runhaskell -i../Frontend $1"
+cp modelFunction.wppl $1.wppl

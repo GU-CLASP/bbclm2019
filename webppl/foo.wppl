@@ -1,0 +1,10 @@
+var binomial = function() {
+  var a = sample(Bernoulli({ p: 0.5 }))
+  var b = sample(Bernoulli({ p: 0.5 }))
+  var c = sample(Bernoulli({ p: 0.5 }))
+  return a + b + c
+}
+
+var binomialDist = Infer({ model: binomial })
+
+viz(binomialDist)

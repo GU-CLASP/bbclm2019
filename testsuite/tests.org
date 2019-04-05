@@ -1,0 +1,455 @@
+1. Every violinist is a musician.
+   Musicians generally read music. ->
+   If John is a violinist, then John reads music. 
+   [Quantifier, Modal Adverb]
+
+2. Prolog programmers are always intermediate logic students.
+   Intermediate logic students rarely read music. ->
+   Prolog programmers don't read music.
+   [Quantifier, Modal Adverb]
+
+3. Many bald men are toupee wearers.
+   Toupee wearers always try hair transplant treatment.
+   John is a bald man. ->
+   John tries hair transplant treatment. 
+   [Quantifier, Modal Adverb]
+
+4. John is a basketball player.
+   Basketball players are usually taller than non basketball players. ->
+   John is taller than most people. 
+   [Comparative Adjective, Modal Adverb]
+
+5. John is a short basketball player.
+   Basketball players are usually less short than non basketball players. -> 
+   John is short.
+   [Comparative Adjective, Modal Adverb, Subsectivity]
+
+6. All basketball players are probably tall. ->
+   Most basketball players are tall.
+   [Quantifier, Modal Adverb]
+
+7. 40 percent of Prolog programmers read music.
+   Violinists don't like Prolog programmers that read music. ->
+   Violinists don't like most Prolog programmers.
+   [Percentage determiner, Modal Adverb, negation, binary predicate]
+
+8. Prolog programmers definitely use tail recursion.
+   Many logicians are Prolog programmers. ->
+   Logicians use tail recursion.
+   [Quantifier, Modal Adverb]
+
+9. Stones fans often prefer The Doors to The Beatles.
+   John is a Stones fan. ->
+   John prefers The Doors to The Beatles.
+   [Quantifier, Temporal Adverb]
+
+10. If you play for the Leafs, then you are probably traded from the Canadiens.
+    If you are traded from the Canadiens, then you often play in the Montreal Forum. 
+    John plays for the Leafs. ->
+    John plays in the Montreal Forum.
+    [Quantifier, Modal Adverb, Temporal Adverb]
+
+11. Turkish coffee drinkers frequently enjoy a shot of Arak.
+    Most people that enjoy a shot of Arak also listen to classical oud music. ->
+    Turkish coffee drinkers listen to classical oud music.
+    [Quantifier, Temporal Adverb]
+
+12. If you regularly eat humus, then you also enjoy tabouli.
+    Most people that enjoy tabouli insist on having mint tea with food. ->
+    If you eat humus, then you insist on having mint tea with food.
+    [Quantifier, Temporal Adverb]
+
+13. Cricket players rarely hit a home run.
+    Mary hits a home run. ->
+    Mary isn't a cricket player.
+    [Quantifier, Temporal Adverb, Negation]
+
+14. Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play more than 80 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+15. Mary is tall.
+    John is taller than Mary. ->
+    John is tall.
+    [Comparative Adjective, Transitivity]
+
+16. Mary isn't tall.
+    Mary is taller than John. ->
+    John isn't tall.
+    [Comparative Adjective, Transitivity]
+
+17. John is always as punctual as Mary.
+    Sam is usually more punctual than John. ->
+    Sam is more punctual than Mary.
+    [Quantifier, Modal/Temporal Adverb]
+
+18. Many linguists know formal language theory.
+    Most linguists that know formal language theory dislike experimental work. ->
+    Many linguists dislike experimental work.
+    [Quantifier]
+
+19. Most Conservatives don't usually support free university education.
+    John supports free university education. ->
+    John isn't a Conservative. 
+    [Quantifier, Modal/Temporal Adverb, negation]
+
+20. If you are a guitarist, then you are probably a Stones fan.
+    If you are a Stones fan, then you generally prefer The Doors to the Beatles. ->
+    Every person that doesn't prefer The Doors to the Beatles is a person that isn't a guitarist.
+    [Modal Adverbs, Quantifies, Relative Clause, Negation, Conditional]
+
+21. If you are a guitarist, then you are probably a Stones fan.
+    If you are a Stones fan, then you generally prefer The Doors to the Beatles. ->
+    Every person that doesn't prefer The Doors to the Beatles isn't a guitarist.
+    [Modal Adverbs, Quantifies, Relative Clause, Negation, Conditional]
+
+22. 80 percent of basketball players are tall. ->
+    Basketball players are probably tall.
+    [Percentage determiner, Modal Adverb]
+
+23. 80 percent of basketball players are tall. ->
+    Few Basketball players aren't tall.
+    [Percentage determiner, negation]
+
+24. Prolog programmers definitely use tail recursion.
+    Logicians are frequently Prolog programmers. ->
+    Logicians probably use tail recursion.
+    [Quantifier, Modal Adverb]
+    
+25. John is tall.
+    All guitarists are logicians. ->
+    John is tall and all guitarists are logicians.
+    [Conjunction]
+
+26. John is tall.
+    All guitarists are logicians. ->
+    John is tall.
+    [Weakening]
+
+27. John is taller than Mary. ->
+    John is tall.
+    [Comparative Adjective]
+
+28. John is taller than Mary.
+    Mary is taller than Sam. ->
+    John is tall.
+    [Comparative Adjective, Transitivity]
+
+29. John is taller than Mary.
+    Sam is taller than Mary. ->
+    John is tall.
+    [Comparative Adjective]
+
+30. All intermediate logic students are Stones fans.
+    John is an intermediate logic student. -> 
+    John is a Stones fan.
+    [Quantifier, FOL validity]
+
+31. John is a guitarist.
+    Most guitarists aren't logicians. ->
+    John isn't a logician.
+    [negation, modus ponens]
+
+32. John is a logician.
+    Most guitarists aren't logicians. ->
+    John isn't a guitarist.
+    [negation, modus tollens]
+
+33. it is not the case that John is taller than most people.
+    [law of great numbers (object)]
+
+34. A few people are shorter than John.
+    [law of great numbers (subject)]
+
+35. it is not the case that few people are shorter than John.
+    [law of great numbers (subject)]
+
+36. John isn't a guitarist.
+    it is not the case that John is a guitarist.
+    [wide-scope negation]
+
+37. Mary is 190 centimeters tall.
+    Mary is tall. 
+    Molly is 184 centimeters tall.
+    Molly is tall.
+    Ruth is 180 centimeters tall.
+    Ruth is tall.
+    Helen is 178 centimeters tall.
+    Helen is tall.
+    Athena is 166 centimeters tall.
+    Athena isn't tall.
+    Artemis is 157 centimeters tall.
+    Artemis isn't tall.
+    Joanna is 160 centimeters tall.
+    Joanna isn't tall.
+    Kate is 162 centimeters tall.
+    Kate isn't tall. 
+    Christine is 178 centimeters tall. ->
+    Christine is tall. 
+    [Positive Adjectives]
+
+38. Mary is 189 centimeters tall.
+    Mary is tall. 
+    Molly is 184 centimeters tall.
+    Molly is tall.
+    Ruth is 180 centimeters tall.
+    Ruth is tall.
+    Helen is 178 centimeters tall.
+    Helen is tall.
+    Athena is 166 centimeters tall.
+    Athena isn't tall.
+    Artemis is 157 centimeters tall.
+    Artemis isn't tall.
+    Joanna is 160 centimeters tall.
+    Joanna isn't tall.
+    Kate is 162 centimeters tall.
+    Kate isn't tall. 
+    Christine is 163 centimeters tall. -> 
+    Christine isn't tall. 
+    [Positive adjectives]
+
+39. Many jazz guitarists can play more than 2 chords.
+    Few violinists can play more than 1 chord.
+    John can play more than 2 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+40. Many jazz guitarists can play more than 5 chords.
+    Few violinists can play more than 2 chords.
+    John can play more than 4 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+41. John is 180 centimeters tall.
+    John is 6 foot tall.
+    Mary is 6 foot tall. ->
+    Mary is 180 centimeters tall.
+    [Comparative, Measure]
+
+42. Mary is 190 centimeters tall.
+    Mary is tall. 
+    Molly is 184 centimeters tall.
+    Molly is tall.
+    Ruth is 180 centimeters tall.
+    Ruth is tall.
+    Helen is 178 centimeters tall.
+    Helen is tall.
+    Athena is 166 centimeters tall.
+    Athena isn't tall.
+    Artemis is 157 centimeters tall.
+    Artemis isn't tall.
+    Joanna is 160 centimeters tall.
+    Joanna isn't tall.
+    Kate is 162 centimeters tall.
+    Kate isn't tall. 
+    Christine is 171 centimeters tall. -> 
+    ( It is not the case that Christine is tall ) and ( it is not the case that Christine isn't tall ). 
+    [Positive adjectives, Vagueness]
+
+43. John is taller than Mary.
+    John is 185 centimeters tall.
+    Mary is 5 foot tall. ->
+    185 centimeters is more than 5 foot.
+    [Comparative, Measure]
+
+44. John is taller than Mary.
+    Mary is 5 foot tall. ->
+    John is more than 5 foot tall.
+    [Comparative, Measure]
+
+45. John is a guitarist.
+    Guitarists are kind of musicians. ->
+    John is a musician.
+    [Generalised vagueness, noun modifier]
+
+46. John is a guitarist.
+    Guitarists are pretty much musicians. ->
+    John is a musician.
+    [Generalised vagueness, noun modifier]
+
+47. John is a basketball player.
+    Basketball players are tall.
+    John is taller than 50 percent of people.
+    [Comparative Adjective, Modal Adverb]
+
+48. Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play more than 80 chords. ->
+    John isn't a violinist.
+    [Quantifiers]
+
+49. Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play less than 15 chords. ->
+    John is a violinist.
+    [Quantifiers]
+
+50. Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play more than 90 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+51. Jazz guitarists are musicians.
+    Violinists are musicians.
+    John is a musician.
+    Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play more than 90 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+52. Jazz guitarists are musicians.
+    Violinists are musicians.
+    John is a musician.
+    Musicians can play more than 1 chord.
+    Many jazz guitarists can play more than 100 chords.
+    Few violinists can play more than 10 chords.
+    John can play more than 90 chords. ->
+    John is a jazz guitarist.
+    [Quantifiers]
+
+53. John is a basketball player.
+    Basketball players are taller than most non basketball players. ->
+    John is taller than most non basketball players.
+    [Comparative Adjective, Modal Adverb]
+
+54. Few people are basketball players.
+    Basketball players are taller than most non basketball players.
+    John is a basketball player.
+    John is taller than most people.
+    [Comparative Adjective, Modal Adverb]
+
+55. 99 percent of people are non basketball players.
+    Basketball players are taller than most non basketball players.
+    John is a basketball player.
+    John is taller than most people.
+    [Comparative Adjective, Modal Adverb]
+
+56. If you regularly eat humus, then you also enjoy tabouli.
+    People that enjoy tabouli insist on having mint tea with food. ->
+    If you regularly eat humus, then you insist on having mint tea with food.
+    [Quantifier, Temporal Adverb]
+
+57. If you eat humus, then you also enjoy tabouli.
+    People that enjoy tabouli insist on having mint tea with food. ->
+    If you eat humus, then you insist on having mint tea with food.
+    [Transitivity of implication]
+
+58. If you eat humus, then you also enjoy tabouli.
+    John eats humus. ->
+    John enjoys tabouli.
+    [Modus ponens]
+
+59. If you eat humus, then you also enjoy tabouli.
+    People that enjoy tabouli insist on having mint tea with food. ->
+    If John eats humus, then John insists on having mint tea with food.
+    [Transitivity of implication]
+
+60. If you regularly eat humus, then you also enjoy tabouli.
+    People that enjoy tabouli insist on having mint tea with food. ->
+    If John regularly eats humus, then John insists on having mint tea with food.
+    [Transitivity of implication]
+
+61. Mary is 190 centimeters tall.
+    Mary is tall.
+    Kate is 162 centimeters tall.
+    Kate isn't tall.
+    Christine is 185 centimeters tall. ->
+    Christine is tall.
+    [Positive adjectives]
+
+62. Few people are musicians.
+    Few people are non musicians. ->
+    ( It is not the case that John is a musician ) and ( it is not the case that John is a non musician ).
+    [Comparative Adjective, Grey Area]
+
+63. John is tall.
+    Few guitarists are logicians. ->
+    John is tall and few guitarists are logicians.
+    [Conjunction]
+
+64. John is tall.
+    John is a musician. ->
+    John is tall and John is a musician.
+
+65. All guitarists are probably logicians. ->
+    Most guitarists are logicians.
+
+66. All guitarists are logicians. ->
+    All guitarist are probably logicians.
+
+67. Few guitarists are logicians. ->
+    All guitarists are logicians.
+
+68. All guitarists are probably logicians. ->
+    All guitarists are probably logicians. 
+
+69. All guitarists are logicians. ->
+    All guitarists are logicians. 
+
+70. Mary is 190 centimeters tall.
+    Mary is tall.
+    Kate is 162 centimeters tall.
+    Kate isn't tall.
+    Christine is 179 centimeters tall. ->
+    Christine is tall.
+    [Positive adjectives]
+
+71. Mary is 190 centimeters tall.
+    Mary is tall.
+    Kate is 188 centimeters tall.
+    Kate isn't tall.
+    Christine is 189 centimeters tall. ->
+    Christine isn't tall.
+    [Positive adjectives]
+
+72. Mary is 190 centimeters tall.
+    Mary is tall.
+    Kate is 189 centimeters tall.
+    Kate isn't tall.
+    Christine is 188 centimeters tall. ->
+    Christine is tall.
+    [Positive adjectives]
+
+73. Mary is 190 centimeters tall.
+    Mary is tall.
+    Kate is 180 centimeters tall.
+    Kate is tall.
+    Helen is 170 centimeters tall.
+    Helen isn't tall.
+    Christine is 165 centimeters tall. ->
+    Christine isn't tall.
+
+74. Kate is 190 centimeters tall.
+    Kate is tall.
+    Helen is 180 centimeters tall.
+    Helen isn't tall.
+    Christine is 190 centimeters tall. ->
+    Christine is tall.
+
+75. Few people are basketball players.
+    Basketball players are taller than most non basketball players.
+    John is a basketball player.
+    John is taller than many people.
+    [Comparative Adjective, Modal Adverb]
+
+76. All violinists are musicians.
+    All musicians read music. ->
+    All violinists read music.
+    [Quantifiers, FOL validity]
+
+77. All violinists are musicians.
+    All musicians read music. ->
+    99 percent of violinists read music.
+    [Quantifiers, percentage determiner]
+
+
+78. Every guitarist is a logician. 
+    If every guitarist is a logician, then every musician reads music.
+    John is a musician. ->
+    John reads music.
+    [Implication, Quantifier, proper name]
+
