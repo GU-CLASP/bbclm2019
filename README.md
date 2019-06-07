@@ -20,4 +20,4 @@ Run the following command to translate Haskell files into WebPPL programs and ru
 ./runmodel.sh ProblemN.hs
 ```
 
-where ProblemX is the N-th example of the test suite.
+where ProblemN is the N-th example of the test suite (subtitute N by a number of an example).
